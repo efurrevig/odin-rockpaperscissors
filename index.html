@@ -25,12 +25,43 @@
     //console.log(computerPlay());
 
     //take user input for RPS choice
-    function playerSelection() {
+    function playerPlay() {
         let rps = window.prompt("Enter rock, paper, or scissors:");
         rps = rps.toLowerCase()
         rps = rps.charAt(0).toUpperCase() + rps.slice(1);
         return rps;
     }
-    console.log(playerSelection());
+    //console.log(playerSelection());
+
+    //prints winner
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+            return 'You win! Paper beats Rock';
+        } else if (playerSelection === 'Rock' && computerSecection === 'Scissors') {
+            return 'You win! Rock beats Scissors';
+        } else if (playerSelection === 'Scissors' && computerSelection == 'Paper') {
+            return 'You win! Scissors beats Paper';
+        } else {
+            return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+        }
+
+    }
+
+    // const playerSelection = 'Paper';
+    // const computerSelection = computerPlay();
+
+    // console.log(playRound(playerSelection, computerSelection));
+
+
+    function game() {
+        for (let i = 0; i < 5; i++){
+            
+        }
+    }
+    /* 
+    paper beats rock
+    rock beats scissors
+    scissors beats paper
+    */
 </script>
 </html>
