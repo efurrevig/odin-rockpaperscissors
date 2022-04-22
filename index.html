@@ -36,13 +36,17 @@
     //prints winner
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-            return 'You win! Paper beats Rock';
-        } else if (playerSelection === 'Rock' && computerSecection === 'Scissors') {
-            return 'You win! Rock beats Scissors';
+            //return 'You win! Paper beats Rock';
+            return 1;
+        } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+            //return 'You win! Rock beats Scissors';
+            return 1;
         } else if (playerSelection === 'Scissors' && computerSelection == 'Paper') {
-            return 'You win! Scissors beats Paper';
+            //return 'You win! Scissors beats Paper';
+            return 1;
         } else {
-            return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+            return 2;
+            //return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
         }
 
     }
@@ -54,10 +58,34 @@
 
 
     function game() {
+        let playerSelection = '';
+        let computerSelection = '';
+        let winner;
+        let playerWin = 0;
+        let compWin = 0;
+
         for (let i = 0; i < 5; i++){
-            
+            playerSelection = playerPlay();
+            computerSelection = computerPlay();
+            winner = playRound(playerSelection, computerSelection);
+            if (winner === 1) {
+                playerWin++;
+                console.log('You win that round! ' + computerSelection + ' beats ' + playerSelection + '. The score is ' + playerWin + '-' + compWin);
+            } else {
+                compWin++;
+                console.log('You lose that round! ' + computerSelection + ' beats ' + playerSelection + '. The score is ' + playerWin + '-' + compWin);
+            }
+            if (playerWin === 3) {
+                console.log('You win!');
+                break;
+            } else if (compWin === 3) {
+                console.log('Computer wins!');
+                break;
+            }
         }
     }
+
+    game();
     /* 
     paper beats rock
     rock beats scissors
