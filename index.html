@@ -5,91 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="rps-js.js" defer></script>
 </head>
 <body>
-    
+    <div class="buttons">
+        <button class="button" id="Rock" value="Rock">Rock</button>
+        <button class="button" id="Paper" value="Paper">Paper</button>
+        <button class="button" id="Scissors" value="Scissors">Scissors</button>
+    </div>
+    <div id="score"></div>
+    <div id="results"></div>
+    <div id="end"></div>
 </body>
-<script>
-
-    //randomly outputs computer RPS choice
-    function computerPlay() {
-        let int = Math.floor(Math.random() * (3) + 1);
-        if (int === 1) {
-            return 'Rock';
-        } else if (int === 2) {
-            return 'Paper';
-        } else {
-            return 'Scissors';
-        }
-    }
-    //console.log(computerPlay());
-
-    //take user input for RPS choice
-    function playerPlay() {
-        let rps = window.prompt("Enter rock, paper, or scissors:");
-        rps = rps.toLowerCase()
-        rps = rps.charAt(0).toUpperCase() + rps.slice(1);
-        return rps;
-    }
-    //console.log(playerSelection());
-
-    //prints winner
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-            //return 'You win! Paper beats Rock';
-            return 1;
-        } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-            //return 'You win! Rock beats Scissors';
-            return 1;
-        } else if (playerSelection === 'Scissors' && computerSelection == 'Paper') {
-            //return 'You win! Scissors beats Paper';
-            return 1;
-        } else {
-            return 2;
-            //return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
-        }
-
-    }
-
-    // const playerSelection = 'Paper';
-    // const computerSelection = computerPlay();
-
-    // console.log(playRound(playerSelection, computerSelection));
-
-
-    function game() {
-        let playerSelection = '';
-        let computerSelection = '';
-        let winner;
-        let playerWin = 0;
-        let compWin = 0;
-
-        for (let i = 0; i < 5; i++){
-            playerSelection = playerPlay();
-            computerSelection = computerPlay();
-            winner = playRound(playerSelection, computerSelection);
-            if (winner === 1) {
-                playerWin++;
-                console.log('You win that round! ' + computerSelection + ' beats ' + playerSelection + '. The score is ' + playerWin + '-' + compWin);
-            } else {
-                compWin++;
-                console.log('You lose that round! ' + computerSelection + ' beats ' + playerSelection + '. The score is ' + playerWin + '-' + compWin);
-            }
-            if (playerWin === 3) {
-                console.log('You win!');
-                break;
-            } else if (compWin === 3) {
-                console.log('Computer wins!');
-                break;
-            }
-        }
-    }
-
-    game();
-    /* 
-    paper beats rock
-    rock beats scissors
-    scissors beats paper
-    */
-</script>
 </html>
+
+
+
+<!--
+    For now, remove the logic that plays exactly five rounds.
+Create three buttons, one for each selection. Add an event listener 
+    to the buttons that call your playRound function with the correct 
+    playerSelection every time a button is clicked. 
+    (you can keep the console.logs for this step)
+
+Add a div for displaying results and 
+    change all of your console.logs into DOM methods.
+
+Display the running score, and announce a winner of the 
+    game once one player reaches 5 points.
+
+You will likely have to refactor (rework/rewrite) your 
+    original code to make it work for this. 
+    That’s OK! Reworking old code is an important part of a programmer’s life.
+
+Once you’re all done with your UI and made sure 
+    everything’s satisfactory, commit your changes to the rps-ui branch.
+-->
